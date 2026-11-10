@@ -656,7 +656,7 @@ float find_gamut_boundary_intersection(float JM_cusp[2],
     // The upper hull is flipped and thus 'zeroed' at J_max
     // Also note we negate the slope
     const float f_J_intersect_cusp = J_max - J_intersect_cusp;
-    const float f_J_intersect_source = J_max - J_intersect_source;
+    const float f_J_intersect_source = clamp(J_max - J_intersect_source, 0., J_max - J_intersect_source);
     const float f_JM_cusp_J = J_max - JM_cusp[0];
     const float M_boundary_upper = estimate_line_and_boundary_intersection_M(f_J_intersect_source,
                                                                              -slope,
